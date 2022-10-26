@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  /* Reset */
+  body, html{ background: #000; color:#fff; font-family: 'Intro', sans-serif; font-size: 16px; box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0 0 1rem 0;padding: 0;}ol,ul{list-style-type: none;}img{height: auto;}h1{font-size: 4rem;} h2{font-size: 3rem;} h3{font-size: 2rem;} h4{font-size: 1rem;} h5{font-size: 0.8rem;} h6{font-size: 0.6rem;}a{text-decoration:none}
+  .bg-img{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+    .big-title{
+        font-weight: bold; 
+    }
+    .title{
+        font-size: 20px;
+
+    }
+
+
+
+  .resize{
+    width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+
+  .anim{
+    transform: scale(1);
+    transition: all 1s cubic-bezier(.215, .61, .355, 1);
+    opacity: 0;
+
+  }
+
+    .in-page{
+    transform: scale(1.2);
+    opacity:1;
+  }
+
+  .wpanel{
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    color:#000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wspanel{
+    height: 100vh;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    color:#000;
+    text-align: center;
+  }
+  .panel{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    color:#fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  </style>
+
+</head>
+<body>
+    <img class="bg-img"src="assets/img/hoverN.png">
+    <div class="panel resize">
+        <div class="anim resize">
+            <h1 class="big-title resize"> Soluzioni e Servizi Web </h1>
+            <p class="title resize">Enfatizziamo il brand, valorizzando il servizio offerto.</p>
+        </div>
+    </div>
+
+    <div class="wpanel resize ">
+        <div class="anim resize">
+            <h2 class="title resize"> Chi siamo e cosa facciamo ? </h2>
+            <p class="resize" style="padding-top: 3px;">
+                Una buona <b>web identity</b> può plasmare le percezioni e le aspettative di un cliente e <b>guidarlo</b> nella sua scelta di un prodotto o di un servizio.
+                Di qui l’importanza di un’immagine riconoscibile e personale: è il primo passo verso il <b>successo</b> della comunicazione web di qualsiasi organizzazione,
+                non è altro che l'immagine pubblica di una determinata <b>organizzazione</b> , <b>prodotto</b> , <b>azienda</b> o <b>individuo</b>.
+                Con le mie pregresse esperienze sono in grado di analizzare le reali necessità, individuare le soluzioni idonee e <b>realizzare</b> siti internet ad hoc.
+            </p>
+        </div>
+    </div>
+   <script> 
+   // elements
+   var elements_to_watch = document.querySelectorAll('.anim');
+
+   // callback 
+   var callback = function(items){
+     items.forEach((item) => {
+       if(item.isIntersecting){
+         item.target.classList.add("in-page");
+       } else{
+         item.target.classList.remove("in-page");
+       }
+     });
+   }
+
+   // observer
+   var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+
+   // apply
+   elements_to_watch.forEach((element) => {
+     observer.observe(element); 
+   });
+   </script>
+
+</body>
+</html>
