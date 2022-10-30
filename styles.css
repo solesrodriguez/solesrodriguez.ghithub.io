@@ -1,0 +1,79 @@
+.logo{
+  width: 15%;
+}
+
+
+.section1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%), url("hoverN.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
+}
+
+.section3{
+  background-color: #312e40;
+}
+
+.quadrato{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header{
+  z-index: 1;
+}
+
+
+
+/* ANIMAZIONI*/
+.anim{
+transform: scale(1);
+transition: all 1s cubic-bezier(.215, .61, .355, 1);
+opacity: 0;
+}
+
+.in-page{
+transform: scale(1.1);
+opacity:1;
+}
+/*FINE*/
+
+
+/* HELPER*/
+.logo_quadrato{
+max-width: 50px;
+max-height: 50px;
+}
+
+
+
+@media (max-width: 768px) {
+  .section2{
+    width: 100%;
+  }
+
+  .section3{
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section2{
+    width: 100%;
+    height: 100vh;
+  }
+  .section3{
+    width: 100%;
+    height: 100vh;
+  }
+}
+/*FINE*/
